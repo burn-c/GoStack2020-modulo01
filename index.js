@@ -2,8 +2,10 @@ const express = require('express');
 
 const server = express();
 
-server.get('/teste', (req, res) => {
-    return res.send('Hello World');
+server.get('/teste/:id', (req, res) => {
+  const {id} =  req.params;
+
+  return res.json({ message: `Buscando o usuário ${id}` });
 })
 
 server.listen(3000);
